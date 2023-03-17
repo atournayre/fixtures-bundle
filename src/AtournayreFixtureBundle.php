@@ -1,5 +1,6 @@
 <?php
 
+namespace Atournayre\Bundle\FixtureBundle\Tests;
 
 use Atournayre\Bundle\FixtureBundle\DependencyInjection\FixtureExtension;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
