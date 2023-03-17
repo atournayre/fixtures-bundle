@@ -1,6 +1,6 @@
 <?php
 
-namespace App\DataFixtures\Provider;
+namespace Atournayre\Bundle\FixtureBundle\Provider;
 
 use Symfony\Component\DependencyInjection\Attribute\AutoconfigureTag;
 use Symfony\Component\PasswordHasher\Hasher\PasswordHasherFactoryInterface;
