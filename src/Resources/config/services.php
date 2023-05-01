@@ -2,6 +2,7 @@
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
+use Atournayre\Bundle\FixtureBundle\Command\FixturesCommand;
 use Atournayre\Bundle\FixtureBundle\Contracts\FixtureProvider;
 use Atournayre\Bundle\FixtureBundle\Provider\DateTimeProvider;
 use Atournayre\Bundle\FixtureBundle\Provider\EntityProvider;
@@ -15,6 +16,9 @@ return static function (ContainerConfigurator $container) {
         ->defaults()
         ->instanceof(FixtureProvider::class)->tag($tagNelmioAliceFakerProvider);
 
+    $services->set(FixturesCommand::class)->public()
+        ->autowire();
+
     $fixturesProviders = [
         DateTimeProvider::class,
         EntityProvider::class,
@@ -23,6 +27,7 @@ return static function (ContainerConfigurator $container) {
     ];
 
     foreach ($fixturesProviders as $fixturesProvider) {
-        $services->set($fixturesProvider)->autowire()->public();
+        $services->set($fixturesProvider)->public()
+            ->autowire();
     }
 };
