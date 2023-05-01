@@ -17,7 +17,7 @@ return static function (ContainerConfigurator $container) {
         ->instanceof(FixtureProvider::class)->tag($tagNelmioAliceFakerProvider);
 
     $services->set(FixturesCommand::class)->public()
-        ->autowire();
+        ->tag('console.command');
 
     $fixturesProviders = [
         DateTimeProvider::class,
