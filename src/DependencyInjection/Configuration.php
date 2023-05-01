@@ -12,6 +12,16 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder(): TreeBuilder
     {
-        return new TreeBuilder('atournayre_fixture');
+        $treeBuilder = new TreeBuilder('atournayre_fixture');
+        $rootNode = $treeBuilder->getRootNode();
+
+        $rootNode
+            ->children()
+                ->scalarNode('command')->defaultValue('hautelook:fixtures:load')->end()
+                ->scalarNode('ending_message')->defaultValue('Fixtures are loaded, <info>no more actions required</info>. Enjoy!')->end()
+            ->end()
+        ;
+
+        return $treeBuilder;
     }
 }

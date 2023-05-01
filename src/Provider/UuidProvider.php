@@ -2,15 +2,14 @@
 
 namespace Atournayre\Bundle\FixtureBundle\Provider;
 
-use Symfony\Component\DependencyInjection\Attribute\AutoconfigureTag;
+use Atournayre\Bundle\FixtureBundle\Contracts\FixtureProvider;
 use Symfony\Component\Uid\Uuid;
 use Symfony\Component\Uid\UuidV1;
 use Symfony\Component\Uid\UuidV4;
 use Symfony\Component\Uid\UuidV6;
 use Symfony\Component\Uid\UuidV7;
 
-#[AutoconfigureTag(name: 'nelmio_alice.faker.provider')]
-class UuidProvider
+class UuidProvider implements FixtureProvider
 {
     public static function uuidV1(): UuidV1
     {

@@ -2,11 +2,10 @@
 
 namespace Atournayre\Bundle\FixtureBundle\Provider;
 
-use Symfony\Component\DependencyInjection\Attribute\AutoconfigureTag;
+use Atournayre\Bundle\FixtureBundle\Contracts\FixtureProvider;
 use Symfony\Component\PasswordHasher\Hasher\PasswordHasherFactoryInterface;
 
-#[AutoconfigureTag(name: 'nelmio_alice.faker.provider')]
-class HashPasswordProvider
+class HashPasswordProvider implements FixtureProvider
 {
     public function __construct(
         private readonly PasswordHasherFactoryInterface $passwordHasherFactory,
