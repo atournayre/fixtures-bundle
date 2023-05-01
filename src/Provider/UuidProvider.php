@@ -16,9 +16,13 @@ class UuidProvider implements FixtureProvider
         return Uuid::v1();
     }
 
-    public static function uuidV4(): UuidV4
+    public static function uuidV4(?string $uuid = null): UuidV4
     {
-        return Uuid::v4();
+        if (is_null($uuid)) {
+            return Uuid::v4();
+        }
+
+        return UuidV4::fromString($uuid);
     }
 
     public static function uuidV6(): UuidV6
