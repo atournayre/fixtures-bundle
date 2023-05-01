@@ -19,12 +19,14 @@ use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 use Webmozart\Assert\Assert;
 
 #[AsCommand(
-    name: 'fixtures',
+    name: FixturesCommand::NAME,
     description: 'Run fixtures and perform before/after actions.',
 )]
 #[When('dev')]
 class FixturesCommand extends Command
 {
+    public const NAME = 'fixtures';
+
     private SymfonyStyle $io;
 
     public function __construct(

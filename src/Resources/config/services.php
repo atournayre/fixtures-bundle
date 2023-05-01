@@ -13,11 +13,13 @@ return static function (ContainerConfigurator $container) {
     $tagNelmioAliceFakerProvider = 'nelmio_alice.faker.provider';
 
     $services = $container->services()
-        ->defaults()
+        ->defaults()->private()
         ->instanceof(FixtureProvider::class)->tag($tagNelmioAliceFakerProvider);
 
     $services->set(FixturesCommand::class)->public()
-        ->autowire()
+        ->arg(0, service('service_container'))
+        ->arg(1, service('event_dispatcher'))
+        ->arg(2, FixturesCommand::NAME)
         ->tag('console.command');
 
     $fixturesProviders = [
