@@ -17,9 +17,12 @@ return static function (ContainerConfigurator $container) {
         ->instanceof(FixtureProvider::class)->tag($tagNelmioAliceFakerProvider);
 
     $services->set(FixturesCommand::class)->public()
-        ->arg(0, service('service_container'))
-        ->arg(1, service('event_dispatcher'))
-        ->arg(2, FixturesCommand::NAME)
+        ->arg(0, service('kernel'))
+        ->arg(1, service('service_container'))
+        ->arg(2, service('event_dispatcher'))
+        ->arg(3, service('doctrine'))
+        ->arg(4, service('hautelook_alice.loader'))
+        ->arg(5, FixturesCommand::NAME)
         ->tag('console.command');
 
     $fixturesProviders = [
