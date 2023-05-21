@@ -64,7 +64,7 @@ class FixturesCommand extends Command
         Assert::string($memoryLimit);
 
         $this->eventDispatcher->dispatch(new BeforeFixturesEvent($this->io));
-        $this->runFixtures($input, $output);
+        $this->runFixtures($input);
         $this->eventDispatcher->dispatch(new AfterFixturesEvent($this->io, $memoryLimit));
 
         $this->io->success('Fixtures successful.');
@@ -95,5 +95,7 @@ class FixturesCommand extends Command
             false,
             false
         );
+
+        $this->io->writeln('Done!');
     }
 }
