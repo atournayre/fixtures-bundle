@@ -17,7 +17,6 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
-                ->scalarNode('command')->defaultValue('hautelook:fixtures:load')->end()
                 ->scalarNode('ending_message')->defaultValue('Fixtures are loaded, <info>no more actions required</info>. Enjoy!')->end()
             ->end()
         ;
