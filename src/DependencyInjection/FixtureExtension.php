@@ -35,7 +35,6 @@ class FixtureExtension extends Extension
         $loader = new PhpFileLoader($container, new FileLocator(\dirname(__DIR__).'/Resources/config'));
         $loader->load('services.php');
 
-        $container->setParameter(self::parameterFullName('command'), $config['command']);
         $container->setParameter(self::parameterFullName('ending_message'), $config['ending_message']);
     }
 }
