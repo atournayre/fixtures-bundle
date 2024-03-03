@@ -6,11 +6,11 @@
     "require": {
         "php": ">=8.1",
         "hautelook/alice-bundle": "^2.12",
-        "symfony/config": "^6.2",
-        "symfony/dependency-injection": "^6.2",
-        "symfony/http-kernel": "^6.2",
-        "symfony/password-hasher": "^6.2",
-        "symfony/uid": "^6.2"
+        "symfony/config": "^6.2 || ^7.0",
+        "symfony/dependency-injection": "^6.2 || ^7.0",
+        "symfony/http-kernel": "^6.2 || ^7.0",
+        "symfony/password-hasher": "^6.2 || ^7.0",
+        "symfony/uid": "^6.2 || ^7.0"
     },
     "config": {
         "preferred-install": "dist",
